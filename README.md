@@ -1,16 +1,13 @@
+# Python for Statisticians and Economists
 
-# Python for Statisticians (2015 Fall)
+Graduate level course in Python for Statisticians and Economists.
 
-Graduate level course in Python for students in Statistics
+- [Course Homepage](https://feng.li/teaching/python)
 
 ## Prerequisite
 
 - Basic knowledge in statistics
 - Basic knowledge in programming
-
-## Venue
-
-- Mingde Main Building Underground 1009, Remin University of China
 
 ## Literature
 
@@ -26,9 +23,3 @@ Graduate level course in Python for students in Statistics
 - L3-Python-for-Statistical-Modeling
 - L4-Python-and-Texts
 - L5-Python-and-Text-Processing
-
-## Lab Exercises
-
-Please send your solution to me before the due day. Please use the string “PY2015FALL” in your mail subject line. You submission will be ignored without such string.
-
-
