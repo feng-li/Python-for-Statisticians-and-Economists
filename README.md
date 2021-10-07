@@ -6,8 +6,8 @@ Graduate level course in Python for Statisticians and Economists.
 
 ## Prerequisite
 
-- Basic knowledge in statistics
-- Basic knowledge in programming
+- Basic knowledge of statistics
+- Basic knowledge of programming
 
 ## Literature
 
@@ -16,10 +16,24 @@ Graduate level course in Python for Statisticians and Economists.
 - Ryan Mitchell (2015), Web Scraping with Python, O’Reilly Media
 - Lecture notes
 
-## Lecture notes
+## Lecture notes (in Jupyter notebook format)
 
-- L1-Python-from-Scratch
-- L2-Python-Data-Structures
-- L3-Python-for-Statistical-Modeling
-- L4-Python-and-Texts
-- L5-Python-and-Text-Processing
+#### Quick View
+
+You coud view all the notebooks in this repository via the [Jupyter Notebook
+Viewer](https://nbviewer.jupyter.org/github/feng-li/Python-for-Statisticians-and-Economists)
+
+#### Run the demo locally
+Requirements to run the notebook interactively
+
+- Python (>= 3.6.0)
+    - `numpy`, `scipy`, `pandas`, `scikit-learn`
+
+- Jupyter Notebook (>= 5.0)
+
+    - [RISE](https://github.com/damianavila/RISE) (for Jupyter slides)
+
+        Use `Alt+R` to enter sildeshow mode
+
+    - [Bash Kernel](https://github.com/takluyver/bash_kernel) (for Linux and Hadoop, Hive, Spark batch mode)
+    - [IPython kernel for Python 3](https://ipython.readthedocs.io/en/latest/install/kernel_install.html) (for Interactive PySpark Sessions)
