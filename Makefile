@@ -2,10 +2,10 @@ all: slides
 
 
 slides:
-	jupyter-nbconvert **/**.ipynb  --to slides
+	jupyter-nbconvert **/L*.ipynb  --to slides
 
 html:
 	jupyter-nbconvert **/**.ipynb  --to html
 
 sync:
-	rsync -av --exclude=".git/" . ~/nextcloud/web/python/
+	rsync -av --del --exclude=".git/" . ~/nextcloud/web/python/
