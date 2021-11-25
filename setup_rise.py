@@ -8,24 +8,23 @@ cm = BaseJSONConfigManager(config_dir=str(path))
 cm.update(
 "rise",
     {
+        "start_slideshow_at": "selected",
         "auto_select": "first",
         "transition": "fade",
         "scroll": True,
-        "theme": "solarized",      
+        "theme": "solarized",
         "autolaunch": True,
         "chalkboard": {
             "chalkEffect": 1,
             "chalkWidth": 4,
             "theme": "whiteboard",
             "transition": 800
-    },
+        },
         "enable_chalkboard": True,
         "reveal_shortcuts": {
             "chalkboard": {
                 "clear": "ctrl-k"
             }
-        },
-        "start_slideshow_at": "selected",
-        "theme": "serif"
-  }
+        }
+    }
 )
