@@ -9,7 +9,9 @@ cm.update(
 "rise",
     {
         "auto_select": "first",
-        "transition": "slide",
+        "transition": "fade",
+        "scroll": True,
+        "theme": "solarized",      
         "autolaunch": True,
         "chalkboard": {
             "chalkEffect": 1,
