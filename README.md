@@ -1,10 +1,10 @@
 # Python for Statisticians and Economists
 
-Graduate level course in Python for Statisticians and Economists.
+Graduate level Python programming course for statisticians and economists.
 
-- [Course Homepage](https://feng.li/teaching/python)
+- [Course Homepage](https://feng.li/python)
 
-## Prerequisite
+## Prerequisites
 
 - Basic knowledge of statistics
 - Basic knowledge of programming
@@ -20,8 +20,15 @@ Graduate level course in Python for Statisticians and Economists.
 
 #### Quick View
 
-You coud view all the notebooks in this repository via the [Jupyter Notebook
-Viewer](https://nbviewer.jupyter.org/github/feng-li/Python-for-Statisticians-and-Economists)
+- Jupyter Notebook
+
+    You coud view all the notebooks in this repository via the [Jupyter Notebook
+    Viewer](https://nbviewer.jupyter.org/github/feng-li/Python-for-Statisticians-and-Economists)
+
+- HTML slides
+
+    `Reveal.js` rendered slides are available at the author's [Python course
+    homepage](https://feng.li/teaching/python/#i-5)
 
 #### Run the demo locally
 Requirements to run the notebook interactively
@@ -35,5 +42,8 @@ Requirements to run the notebook interactively
 
         Use `Alt+R` to enter sildeshow mode
 
-    - [Bash Kernel](https://github.com/takluyver/bash_kernel) (for Linux and Hadoop, Hive, Spark batch mode)
-    - [IPython kernel for Python 3](https://ipython.readthedocs.io/en/latest/install/kernel_install.html) (for Interactive PySpark Sessions)
+    - [Bash Kernel](https://github.com/takluyver/bash_kernel) (for Linux commands)
+
+    - [IPython kernel for
+      Python3](https://ipython.readthedocs.io/en/latest/install/kernel_install.html) (for
+      Interactive Python sessions)
