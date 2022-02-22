@@ -1,4 +1,7 @@
 **/.ipynb_checkpoints/**
+**/*.pyc
 **/.ropeproject/**
+**/modules/**
+**/case/**
 **/*.zip
 **/*.md

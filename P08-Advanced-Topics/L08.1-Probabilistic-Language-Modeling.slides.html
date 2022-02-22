@@ -14368,7 +14368,7 @@ $$
     <span class="n">id2word</span><span class="o">=</span><span class="n">id2word</span><span class="p">,</span>
     <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">,</span>
     <span class="n">alpha</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
-    <span class="n">eta</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>
+    <span class="n">eta</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span>  
     <span class="n">iterations</span><span class="o">=</span><span class="n">iterations</span><span class="p">,</span>
     <span class="n">num_topics</span><span class="o">=</span><span class="n">num_topics</span><span class="p">,</span>
     <span class="n">passes</span><span class="o">=</span><span class="n">passes</span><span class="p">,</span>
@@ -14457,20 +14457,55 @@ Successfully installed MarkupSafe-2.0.1 funcy-1.15 future-0.18.2 gensim-4.1.2 ji
 
 </div>
 
-</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># prepend the `modules` folder to Python&#39;s search path </span>
 <span class="kn">import</span> <span class="nn">sys</span>
 <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;modules&#39;</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">path</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
+
+
+
+
+<div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain">
+<pre>[&#39;modules&#39;,
+ &#39;modules&#39;,
+ &#39;/home/fli/cloud/teaching/python/python-slides/P08-Advanced-Topics&#39;,
+ &#39;/usr/lib/python39.zip&#39;,
+ &#39;/usr/lib/python3.9&#39;,
+ &#39;/usr/lib/python3.9/lib-dynload&#39;,
+ &#39;&#39;,
+ &#39;/home/fli/.local/lib/python3.9/site-packages&#39;,
+ &#39;/usr/local/lib/python3.9/dist-packages&#39;,
+ &#39;/usr/lib/python3/dist-packages&#39;,
+ &#39;/usr/local/lib/python3.9/dist-packages/IPython/extensions&#39;,
+ &#39;/home/fli/.ipython&#39;]</pre>
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">

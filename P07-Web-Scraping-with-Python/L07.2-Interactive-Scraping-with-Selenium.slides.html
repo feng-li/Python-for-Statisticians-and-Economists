@@ -14109,7 +14109,7 @@ div.jp-OutputPrompt {
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Web-scraping-with-Selenium-web-driver">Web scraping with <code>Selenium</code> web driver<a class="anchor-link" href="#Web-scraping-with-Selenium-web-driver">&#182;</a></h1><p>Since Selenium WebDriver is created for browser automation, it can be easily used for scraping data from the web. Selenium is to select and navigate the components of a website that are non-static and need to be clicked or chosen from drop-down menus.</p>
+<h2 id="Web-scraping-with-Selenium-web-driver">Web scraping with <code>Selenium</code> web driver<a class="anchor-link" href="#Web-scraping-with-Selenium-web-driver">&#182;</a></h2><p>Since Selenium WebDriver is created for browser automation, it can be easily used for scraping data from the web. Selenium is to select and navigate the components of a website that are non-static and need to be clicked or chosen from drop-down menus.</p>
 <p>If there is any content on the page rendered by javascript then Selenium webdriver wait for the entire page to load before crwaling whereas other libs like BeautifulSoup,Scrapy and Requests works only on static pages.</p>
 <p>Any browsyer actions can be done with the help of Selenium webdriver, if there is any content on the page displayed by on button click or Scrolling or Page Navigation.</p>
 
@@ -14181,34 +14181,32 @@ div.jp-OutputPrompt {
 <pre>Looking in indexes: https://mirrors.163.com/pypi/simple/
 Collecting selenium
   Downloading https://mirrors.163.com/pypi/packages/ad/24/39cab5fbaf425ff522e1e51cce79f94f10f9523f015d2b2251e43f45e8a2/selenium-4.0.0-py3-none-any.whl (954 kB)
-     |████████████████████████████████| 954 kB 4.9 MB/s eta 0:00:01
+     |████████████████████████████████| 954 kB 3.6 MB/s eta 0:00:01
 Collecting trio-websocket~=0.9
   Downloading https://mirrors.163.com/pypi/packages/db/c5/b5e8bc1f40568a354f2a9cc296b8892605a9d2f22e725290fc33836dd2a3/trio_websocket-0.9.2-py3-none-any.whl (16 kB)
-Requirement already satisfied: urllib3[secure]~=1.26 in /usr/lib/python3/dist-packages (from selenium) (1.26.5)
 Collecting trio~=0.17
   Downloading https://mirrors.163.com/pypi/packages/35/c3/5a4befc3812b3b606e0ae9338bfdd02da3ad0a90df27dc66c37315e94f5c/trio-0.19.0-py3-none-any.whl (356 kB)
-     |████████████████████████████████| 356 kB 13.8 MB/s eta 0:00:01
-Requirement already satisfied: idna in /usr/lib/python3/dist-packages (from trio~=0.17-&gt;selenium) (2.10)
+     |████████████████████████████████| 356 kB 6.9 MB/s eta 0:00:01
+Requirement already satisfied: urllib3[secure]~=1.26 in /usr/lib/python3/dist-packages (from selenium) (1.26.5)
 Collecting outcome
   Downloading https://mirrors.163.com/pypi/packages/0d/bb/f60ce97b304b1979d1fef96b6517af47b9bb026770b1f198b6e921b5edf5/outcome-1.1.0-py2.py3-none-any.whl (9.7 kB)
-Requirement already satisfied: sniffio in /usr/local/lib/python3.9/dist-packages (from trio~=0.17-&gt;selenium) (1.2.0)
+Requirement already satisfied: attrs&gt;=19.2.0 in /usr/lib/python3/dist-packages (from trio~=0.17-&gt;selenium) (20.3.0)
+Collecting sniffio
+  Downloading https://mirrors.163.com/pypi/packages/52/b0/7b2e028b63d092804b6794595871f936aafa5e9322dcaaad50ebf67445b3/sniffio-1.2.0-py3-none-any.whl (10 kB)
 Collecting sortedcontainers
   Downloading https://mirrors.163.com/pypi/packages/32/46/9cb0e58b2deb7f82b84065f37f3bffeb12413f947f9388e4cac22c4621ce/sortedcontainers-2.4.0-py2.py3-none-any.whl (29 kB)
 Requirement already satisfied: async-generator&gt;=1.9 in /usr/local/lib/python3.9/dist-packages (from trio~=0.17-&gt;selenium) (1.10)
-Requirement already satisfied: attrs&gt;=19.2.0 in /usr/local/lib/python3.9/dist-packages (from trio~=0.17-&gt;selenium) (21.2.0)
+Requirement already satisfied: idna in /usr/lib/python3/dist-packages (from trio~=0.17-&gt;selenium) (2.10)
 Collecting wsproto&gt;=0.14
   Downloading https://mirrors.163.com/pypi/packages/ea/25/0934b1d00f404d75335b144d4396e01998f25db8953bf54b4d6fe65b80ab/wsproto-1.0.0-py3-none-any.whl (24 kB)
 Requirement already satisfied: certifi in /usr/lib/python3/dist-packages (from urllib3[secure]~=1.26-&gt;selenium) (2020.6.20)
-Requirement already satisfied: cryptography&gt;=1.3.4 in /usr/local/lib/python3.9/dist-packages (from urllib3[secure]~=1.26-&gt;selenium) (3.4.6)
-Requirement already satisfied: pyOpenSSL&gt;=0.14 in /usr/local/lib/python3.9/dist-packages (from urllib3[secure]~=1.26-&gt;selenium) (20.0.1)
-Requirement already satisfied: cffi&gt;=1.12 in /usr/local/lib/python3.9/dist-packages (from cryptography&gt;=1.3.4-&gt;urllib3[secure]~=1.26-&gt;selenium) (1.14.5)
-Requirement already satisfied: pycparser in /usr/local/lib/python3.9/dist-packages (from cffi&gt;=1.12-&gt;cryptography&gt;=1.3.4-&gt;urllib3[secure]~=1.26-&gt;selenium) (2.20)
-Requirement already satisfied: six&gt;=1.5.2 in /usr/lib/python3/dist-packages (from pyOpenSSL&gt;=0.14-&gt;urllib3[secure]~=1.26-&gt;selenium) (1.16.0)
+Requirement already satisfied: cryptography&gt;=1.3.4 in /usr/lib/python3/dist-packages (from urllib3[secure]~=1.26-&gt;selenium) (3.3.2)
+Requirement already satisfied: pyOpenSSL&gt;=0.14 in /usr/lib/python3/dist-packages (from urllib3[secure]~=1.26-&gt;selenium) (21.0.0)
 Collecting h11&lt;1,&gt;=0.9.0
   Downloading https://mirrors.163.com/pypi/packages/60/0f/7a0eeea938eaf61074f29fed9717f2010e8d0e0905d36b38d3275a1e4622/h11-0.12.0-py3-none-any.whl (54 kB)
-     |████████████████████████████████| 54 kB 2.6 MB/s  eta 0:00:01
-Installing collected packages: sortedcontainers, outcome, h11, wsproto, trio, trio-websocket, selenium
-Successfully installed h11-0.12.0 outcome-1.1.0 selenium-4.0.0 sortedcontainers-2.4.0 trio-0.19.0 trio-websocket-0.9.2 wsproto-1.0.0
+     |████████████████████████████████| 54 kB 1.7 MB/s  eta 0:00:01
+Installing collected packages: sortedcontainers, sniffio, outcome, h11, wsproto, trio, trio-websocket, selenium
+Successfully installed h11-0.12.0 outcome-1.1.0 selenium-4.0.0 sniffio-1.2.0 sortedcontainers-2.4.0 trio-0.19.0 trio-websocket-0.9.2 wsproto-1.0.0
 </pre>
 </div>
 </div>
@@ -14298,11 +14296,11 @@ Successfully installed h11-0.12.0 outcome-1.1.0 selenium-4.0.0 sortedcontainers-
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">selenium</span> <span class="kn">import</span> <span class="n">webdriver</span>
-<span class="c1"># from selenium.webdriver.firefox.options import Options</span>
+<span class="kn">from</span> <span class="nn">selenium.webdriver.firefox.options</span> <span class="kn">import</span> <span class="n">Options</span>
 
 <span class="c1"># options = Options()</span>
 <span class="c1"># options.add_argument(&quot;--headless&quot;)</span>
@@ -14340,7 +14338,7 @@ Successfully installed h11-0.12.0 outcome-1.1.0 selenium-4.0.0 sortedcontainers-
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;https://www.baidu.com/&quot;</span><span class="p">)</span>
@@ -14355,7 +14353,7 @@ Successfully installed h11-0.12.0 outcome-1.1.0 selenium-4.0.0 sortedcontainers-
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[41]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">find_element</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">ID</span><span class="p">,</span> <span class="s2">&quot;su&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">click</span><span class="p">()</span>
@@ -14369,7 +14367,7 @@ Successfully installed h11-0.12.0 outcome-1.1.0 selenium-4.0.0 sortedcontainers-
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">results</span> <span class="o">=</span> <span class="n">driver</span><span class="o">.</span><span class="n">find_elements</span><span class="p">(</span><span class="n">By</span><span class="o">.</span><span class="n">XPATH</span><span class="p">,</span><span class="s1">&#39;//*[@id=&quot;content_left&quot;]&#39;</span><span class="p">)</span>
@@ -14383,7 +14381,7 @@ Successfully installed h11-0.12.0 outcome-1.1.0 selenium-4.0.0 sortedcontainers-
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
@@ -14434,7 +14432,7 @@ www.gxust.edu.cn/lxy/info/1023...
 
 百度快照
 其他人还在搜
-李丰新浪尾市盘点李丰贵阳财大中央财经大学王成章李丰山中央财经大学李桂君李丰简介中央财经大学有名教授李丰吧中央财经大学王静中央财经大学四大才子
+中央财经大学四大才子李丰简介孙志猛中央财经大学王成章中央财经大学中央财经大学孙晓伟中央财经大学方意李丰是谁中央财经大学林木
 中央财经大学统计与数学学院导师教师师资介绍简介-李丰
 2020年4月20日 2007年8月-2008年7月 瑞典达拉那大学统计学系硕士研究生,获统计学硕士学位2003年9月-2007年6月 中国人民大学统计学院本科学生,获经济学学士学位 工作经历2013年...
 school.freekaoyan.com/bj/cufe/...
@@ -14471,7 +14469,7 @@ sam.cufe.edu.cn/info/1036/21.....
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">driver</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
@@ -14485,7 +14483,7 @@ sam.cufe.edu.cn/info/1036/21.....
 </div></section></section><section><section>
 <div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Lab">Lab<a class="anchor-link" href="#Lab">&#182;</a></h1><p>Use <code>selenium</code> to implement the case we studied with <code>BeautifulSoup</code> in the previous lab.</p>
+<h2 id="Lab">Lab<a class="anchor-link" href="#Lab">&#182;</a></h2><p>Use <code>selenium</code> to implement the case we studied with <code>BeautifulSoup</code> in the previous lab.</p>
 
 </div>
 </div></section></section>
