@@ -10,5 +10,4 @@ zip:
 	git archive --output=python-slides.zip HEAD
 
 sync:
-	git checkout-index -a -f --prefix=${HOME}/nextcloud/feng.li/python/
-	rsync -av python-slides.zip ${HOME}/nextcloud/feng.li/python/
+	rsync -av --delete-excluded --prune-empty-dirs --include '*/' --include '*slides.zip'  --include '*.ipynb' --include '*.slides.html' --include 'figures/*'  --exclude '*' .  ${HOME}/nextcloud/feng.li/python/
