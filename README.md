@@ -1,6 +1,6 @@
 # Python for Statisticians and Economists
 
-Graduate level Python programming course for statisticians and economists.
+Graduate level course of Python programming and data mining for statisticians and economists.
 
 - [Course Homepage](https://feng.li/python)
 
@@ -22,13 +22,11 @@ Graduate level Python programming course for statisticians and economists.
 
 - Jupyter Notebook
 
-    You coud view all the notebooks in this repository via the [Jupyter Notebook
-    Viewer](https://nbviewer.jupyter.org/github/feng-li/Python-for-Statisticians-and-Economists)
+    You could view all the notebooks in this repository via the [Jupyter Notebook Viewer](https://nbviewer.jupyter.org/github/feng-li/Python-for-Statisticians-and-Economists)
 
 - HTML slides
 
-    `Reveal.js` rendered slides are available at the author's [Python course
-    homepage](https://feng.li/teaching/python/#i-5)
+    `Reveal.js` rendered slides are available at the author's [Python course homepage](https://feng.li/teaching/python/#i-5).
 
 #### Run the demo locally
 Requirements to run the notebook interactively
@@ -40,10 +38,4 @@ Requirements to run the notebook interactively
 
     - [RISE](https://github.com/damianavila/RISE) (for Jupyter slides)
 
-        Use `Alt+R` to enter sildeshow mode
-
-    - [Bash Kernel](https://github.com/takluyver/bash_kernel) (for Linux commands)
-
-    - [IPython kernel for
-      Python3](https://ipython.readthedocs.io/en/latest/install/kernel_install.html) (for
-      Interactive Python sessions)
+        Use `Alt+R` to enter slideshow mode
