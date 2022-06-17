@@ -7,11 +7,10 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
 
 
-<title>L05.1-Fundamental-Modules-for-Statistical-Modeling slides</title><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>L05.1-Fundamental-Modules-for-Statistical-Modeling slides</title><script src="file:///usr/share/javascript/jquery/jquery.min.js"></script><script src="file:///usr/share/javascript/requirejs/require.min.js"></script>
 
 <!-- General and theme style sheets -->
 <link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/reveal.css">
-<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/theme/solarized.css" id="theme">
 
 <!-- If the query includes 'print-pdf', include the PDF print sheet -->
 <script>
@@ -23,53 +22,12 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 }
 </script>
 
-<!-- Loading the mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-MML-AM_CHTML-full,Safe"> </script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    init_mathjax = function() {
-        if (window.MathJax) {
-        // MathJax loaded
-            MathJax.Hub.Config({
-                TeX: {
-                    equationNumbers: {
-                    autoNumber: "AMS",
-                    useLabelIds: true
-                    }
-                },
-                tex2jax: {
-                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-                    processEscapes: true,
-                    processEnvironments: true
-                },
-                displayAlign: 'center',
-                CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
-                    }
-                },
-                "HTML-CSS": {
-                    linebreaks: { 
-                    automatic: true 
-                    }
-                }
-            });
-        
-            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
-        }
-    }
-    init_mathjax();
-    </script>
-    <!-- End of mathjax configuration -->
-
 <style type="text/css">
-    pre { line-height: 125%; margin: 0; }
-td.linenos pre { color: #000000; background-color: #f0f0f0; padding: 0 5px 0 5px; }
-span.linenos { color: #000000; background-color: #f0f0f0; padding: 0 5px 0 5px; }
-td.linenos pre.special { color: #000000; background-color: #ffffc0; padding: 0 5px 0 5px; }
-span.linenos.special { color: #000000; background-color: #ffffc0; padding: 0 5px 0 5px; }
+    pre { line-height: 125%; }
+td.linenos .normal { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+span.linenos { color: inherit; background-color: transparent; padding-left: 5px; padding-right: 5px; }
+td.linenos .special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
+span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 5px; padding-right: 5px; }
 .highlight .hll { background-color: var(--jp-cell-editor-active-background) }
 .highlight { background: var(--jp-cell-editor-background); color: var(--jp-mirror-editor-variable-color) }
 .highlight .c { color: var(--jp-mirror-editor-comment-color); font-style: italic } /* Comment */
@@ -14003,11 +13961,6 @@ a.anchor-link {
   border: 0px solid black;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0);
 }
-.reveal i {
-  font-style: normal;
-  font-family: FontAwesome;
-  font-size: 2em;
-}
 .reveal .slides {
   text-align: left;
 }
@@ -14091,13 +14044,53 @@ div.jp-OutputPrompt {
 }
 </style>
 
+<!-- Load mathjax -->
+    <script src="file:///usr/share/javascript/mathjax/MathJax.js?config=TeX-AMS_CHTML-full,Safe"> </script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    init_mathjax = function() {
+        if (window.MathJax) {
+        // MathJax loaded
+            MathJax.Hub.Config({
+                TeX: {
+                    equationNumbers: {
+                    autoNumber: "AMS",
+                    useLabelIds: true
+                    }
+                },
+                tex2jax: {
+                    inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true,
+                    processEnvironments: true
+                },
+                displayAlign: 'center',
+                CommonHTML: {
+                    linebreaks: { 
+                    automatic: true 
+                    }
+                }
+            });
+        
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        }
+    }
+    init_mathjax();
+    </script>
+    <!-- End of mathjax configuration --><!-- Reveal Theme -->
+<link rel="stylesheet" href="https://unpkg.com/reveal.js@4.0.2/dist/theme/solarized.css" id="theme">
+
 </head>
 
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 
 <div class="reveal">
 <div class="slides"><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Fundamental-Modules-for-Statistical-Modelling">Fundamental Modules for Statistical Modelling<a class="anchor-link" href="#Fundamental-Modules-for-Statistical-Modelling">&#182;</a></h1><p>Feng Li</p>
 <p>School of Statistics and Mathematics</p>
@@ -14106,8 +14099,14 @@ div.jp-OutputPrompt {
 <p><a href="https://feng.li/python">https://feng.li/python</a></p>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Install-different-version-of-Python-modules">Install different version of Python modules<a class="anchor-link" href="#Install-different-version-of-Python-modules">&#182;</a></h2><ul>
 <li><p>What if you want to install an application and leave it be? If an application works, any change in its libraries or the versions of those libraries can break the application. Also, what if you can’t install packages into the global site-packages directory, due to not having permissions to change the host python environment?</p>
@@ -14117,8 +14116,12 @@ div.jp-OutputPrompt {
 </ul>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[19]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14132,6 +14135,8 @@ div.jp-OutputPrompt {
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14166,6 +14171,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14180,6 +14187,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14203,15 +14212,25 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 </div><div class="fragment">
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
 <li>In all these cases, <a href="https://virtualenv.pypa.io/en/latest/"><code>virtualenv</code></a> can also help you. It creates an environment that has its own installation directories, that doesn’t share libraries with other virtualenv environments (and optionally doesn’t access the globally installed libraries either).</li>
 </ul>
 
 </div>
+</div>
+</div>
 </div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Python-modules-for-Statistics">Python modules for Statistics<a class="anchor-link" href="#Python-modules-for-Statistics">&#182;</a></h1><h2 id="NumPy">NumPy<a class="anchor-link" href="#NumPy">&#182;</a></h2><p><code>NumPy</code> is short for Numerical Python, is the foundational package for scientific computing in Python. It contains among other things:</p>
 <ul>
@@ -14227,8 +14246,14 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </ul>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="SciPy">SciPy<a class="anchor-link" href="#SciPy">&#182;</a></h2><p><code>SciPy</code> is a collection of packages addressing a number of different standard problem domains in scientific computing. Here is a sampling of the packages included:</p>
 <ul>
@@ -14238,8 +14263,14 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </ul>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
 <li><code>scipy.signal</code> : signal processing tools.</li>
@@ -14251,20 +14282,36 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 <p><a href="https://docs.scipy.org/doc/scipy/">SciPy Reference Guide</a></p>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Linear-Algebra">Linear Algebra<a class="anchor-link" href="#Linear-Algebra">&#182;</a></h1><p>Linear algebra can be done conveniently via <code>scipy.linalg</code>. When SciPy is built using the optimized ATLAS LAPACK and BLAS libraries, it has very fast linear algebra capabilities. If you dig deep enough, all of the raw lapack and blas libraries are available for your use for even more speed. In this section, some easier-to-use interfaces to these routines are described.</p>
 <p>All of these linear algebra routines expect an object that can be converted into a 2-dimensional array. The output of these routines is also a two-dimensional array.</p>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Matrices-and-n-dimensional-array">Matrices and n-dimensional array<a class="anchor-link" href="#Matrices-and-n-dimensional-array">&#182;</a></h2>
 </div>
+</div>
+</div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[22]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14281,6 +14328,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14306,6 +14355,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[23]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14319,6 +14370,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14344,6 +14397,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14358,6 +14413,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14382,6 +14439,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14395,6 +14454,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14420,6 +14481,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14433,6 +14496,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14458,6 +14523,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14471,6 +14538,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14496,6 +14565,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14510,6 +14581,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14534,6 +14607,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14547,6 +14622,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14571,6 +14648,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14584,6 +14663,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14607,15 +14688,23 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
 <li>Numpy array can easily convet to Pandas, and vise versa.</li>
 </ul>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[58]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14631,6 +14720,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14692,6 +14783,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[60]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14706,6 +14799,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14731,6 +14826,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[61]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14744,6 +14841,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14767,12 +14866,20 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 </div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Solving-linear-system%C2%B6">Solving linear system&#182;<a class="anchor-link" href="#Solving-linear-system%C2%B6">&#182;</a></h2>
 </div>
+</div>
+</div>
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14789,6 +14896,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14814,6 +14923,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14828,6 +14939,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14853,6 +14966,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14866,6 +14981,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14890,6 +15007,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14903,6 +15022,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14928,6 +15049,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14941,6 +15064,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -14966,6 +15091,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -14979,6 +15106,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15003,12 +15132,20 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Determinant">Determinant<a class="anchor-link" href="#Determinant">&#182;</a></h2>
 </div>
+</div>
+</div>
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15025,6 +15162,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15048,12 +15187,20 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 </div></div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Least-squares-problems-and-pseudo-inverses">Least-squares problems and pseudo-inverses<a class="anchor-link" href="#Least-squares-problems-and-pseudo-inverses">&#182;</a></h2>
 </div>
+</div>
+</div>
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15070,6 +15217,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15088,6 +15237,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[39]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15103,6 +15254,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[40]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15118,6 +15271,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15135,6 +15290,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15150,6 +15307,9 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 <div class="jp-RenderedImage jp-OutputArea-output ">
 <img src="data:image/png;base64,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
 "
+class="
+jp-needs-light-background
+"
 >
 </div>
 
@@ -15160,12 +15320,20 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Eigenvalues-and-eigenvectors">Eigenvalues and eigenvectors<a class="anchor-link" href="#Eigenvalues-and-eigenvectors">&#182;</a></h2>
 </div>
+</div>
+</div>
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15193,6 +15361,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15218,12 +15388,20 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Singular-Value-Decomposition-(SVD)">Singular Value Decomposition (SVD)<a class="anchor-link" href="#Singular-Value-Decomposition-(SVD)">&#182;</a></h2>
 </div>
+</div>
+</div>
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[44]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15240,6 +15418,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[45]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15256,6 +15436,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15270,6 +15452,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15295,6 +15479,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15308,6 +15494,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15333,6 +15521,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[48]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15346,6 +15536,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15372,6 +15564,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[49]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15385,6 +15579,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15409,39 +15605,71 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="QR-decomposition">QR decomposition<a class="anchor-link" href="#QR-decomposition">&#182;</a></h2><p>The command for QR decomposition is <code>linalg.qr</code>.</p>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="LU-decomposition">LU decomposition<a class="anchor-link" href="#LU-decomposition">&#182;</a></h2><p>The SciPy command for this decomposition is <code>linalg.lu</code>.  If the intent for performing LU decomposition is for solving linear systems then the command <code>linalg.lu_factor</code> should be used followed by repeated applications of the command <code>linalg.lu_solve</code> to solve the system for each new right-hand-side.</p>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Cholesky-decomposition">Cholesky decomposition<a class="anchor-link" href="#Cholesky-decomposition">&#182;</a></h2><p>The command <code>linalg.cholesky</code> computes the cholesky factorization. For using Cholesky factorization to solve systems of equations there are also <code>linalg.cho_factor</code> and <code>linalg.cho_solve</code> routines that work similarly to their LU decomposition counterparts.</p>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Statistical-Distributions">Statistical Distributions<a class="anchor-link" href="#Statistical-Distributions">&#182;</a></h1><p>A large number of probability distributions as well as a growing library of statistical functions are available in <code>scipy.stats</code>. See <a href="http://docs.scipy.org/doc/scipy/reference/stats.html">http://docs.scipy.org/doc/scipy/reference/stats.html</a> for a complete list.</p>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
 <li>Generate random numbers from normal distribution:</li>
 </ul>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[34]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15456,15 +15684,23 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
 <li>Calculate a few first moments:</li>
 </ul>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15478,13 +15714,21 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h1 id="Linear-regression-model">Linear regression model<a class="anchor-link" href="#Linear-regression-model">&#182;</a></h1><p>This example computes a least-squares regression for two sets of measurements.</p>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[50]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15504,6 +15748,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15526,13 +15772,21 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 </div></section></section><section><section>
-<div class="jp-Cell-inputWrapper"><div class="jp-InputPrompt jp-InputArea-prompt">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Optimization">Optimization<a class="anchor-link" href="#Optimization">&#182;</a></h2><p>The <code>minimize</code> function provides a common interface to unconstrained and constrained minimization algorithms for multivariate scalar functions in <code>scipy.optimize</code></p>
 
 </div>
+</div>
+</div>
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15552,6 +15806,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 
 </div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
 <div class="jp-InputArea jp-Cell-inputArea">
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[64]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
@@ -15570,6 +15826,8 @@ Successfully installed numpy-1.21.2 pandas-1.2.1 python-dateutil-2.8.1 pytz-2021
 </div>
 
 <div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
@@ -15624,6 +15882,7 @@ require(
             progress: true,
             history: true,
             transition: "fade",
+            slideNumber: "",
             plugins: [RevealNotes]
         });
 
