@@ -14254,7 +14254,7 @@ div.jp-OutputPrompt {
 </div>
 </div>
 </div>
-</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14266,7 +14266,7 @@ div.jp-OutputPrompt {
 <span class="n">elec</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/electricity.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">elec</span><span class="p">[</span><span class="s1">&#39;SETTLEMENTDATE&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">elec</span><span class="p">[</span><span class="s1">&#39;SETTLEMENTDATE&#39;</span><span class="p">])</span>
 <span class="n">elec</span> <span class="o">=</span> <span class="n">elec</span><span class="p">[[</span><span class="s1">&#39;SETTLEMENTDATE&#39;</span><span class="p">,</span><span class="s1">&#39;TOTALDEMAND&#39;</span><span class="p">]]</span>
-<span class="n">elec</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">elec</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> 
 </pre></div>
 
      </div>
@@ -14348,7 +14348,7 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section></section><section><section>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14514,37 +14514,7 @@ jp-needs-light-background
 </div>
 </div>
 </div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Simple-Exponential-Smoothing">Simple Exponential Smoothing<a class="anchor-link" href="#Simple-Exponential-Smoothing">&#182;</a></h1><ul>
-<li>Simple (no trend, no seasonality)</li>
-</ul>
-$$\begin{aligned}\hat{y}_{t+h}&amp;=l_t\\l_t&amp;=\alpha y_t+(1-\alpha)l_{t-1}\end{aligned}$$<ul>
-<li>Where $0\leq\alpha\leq 1$ and $l_0$ need to be estimated.</li>
-<li>The logic: Forecast is an average level of the time series where more recent observations are given more influence in determining that level.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Data-Cleaning">Data Cleaning<a class="anchor-link" href="#Data-Cleaning">&#182;</a></h3><p>The following code creates a test sample of the final day (48 half hours) and the remaining data is used for training.</p>
-
-</div>
-</div>
-</div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -14932,7 +14902,7 @@ jp-needs-light-background
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Holt-Winters-exponential-smoothing">Holt-Winters exponential smoothing<a class="anchor-link" href="#Holt-Winters-exponential-smoothing">&#182;</a></h1><ul>
+<h2 id="Holt-Winters-exponential-smoothing">Holt-Winters exponential smoothing<a class="anchor-link" href="#Holt-Winters-exponential-smoothing">&#182;</a></h2><ul>
 <li>Corrects for trend and seasonality. Additive form is:</li>
 </ul>
 $$\begin{aligned}\hat{y}_{t+h}&amp;=l_t+hb_t+s_{t+h-m(k+1)}\\l_{t}&amp;=\alpha y_t+(1-\alpha)(l_{t-1}+b_{t-1})\\b_t&amp;=\beta(l_t-l_{t-1})+(1-\beta)b_{t-1}\\s_t&amp;=\gamma(y_t-l_{t-1}-b_{t-1})+(1-\gamma)s_{t-m}\end{aligned}$$<ul>
@@ -14950,7 +14920,7 @@ $$\begin{aligned}\hat{y}_{t+h}&amp;=l_t+hb_t+s_{t+h-m(k+1)}\\l_{t}&amp;=\alpha y
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Seasonal-period">Seasonal period<a class="anchor-link" href="#Seasonal-period">&#182;</a></h1><ul>
+<h2 id="Seasonal-period">Seasonal period<a class="anchor-link" href="#Seasonal-period">&#182;</a></h2><ul>
 <li>Think of <em>seasonal period</em> as the number of observations required for a pattern to repeat itself</li>
 <li>For example monthly data has a seasonal period of 12, for a pattern repeating every year</li>
 <li>In our example the period repeats every day. </li>
