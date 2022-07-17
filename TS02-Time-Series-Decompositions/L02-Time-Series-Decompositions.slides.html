@@ -14150,6 +14150,7 @@ div.jp-OutputPrompt {
 <span class="n">emp</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/employment.csv&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 <span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">],</span><span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;%b-%Y&quot;</span><span class="p">)</span>
+<span class="c1"># See https://docs.python.org/3/library/datetime.html#datetime.date for time format. </span>
 </pre></div>
 
      </div>
