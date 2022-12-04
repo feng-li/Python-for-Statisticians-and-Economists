@@ -50,6 +50,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -13946,6 +13947,9 @@ a.anchor-link {
 .reveal {
   font-size: 160%;
 }
+.reveal table {
+  font-size: var(--jp-ui-font-size1);
+}
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -13989,6 +13993,23 @@ div.jp-OutputPrompt {
   margin: 5px 5px 0 0;
 }
 
+.reveal div.highlight {
+  margin: 0;
+}
+
+.reveal div.highlight > pre {
+  margin: 0;
+  width: 100%;
+  font-size: var(--jp-code-font-size);
+}
+
+.reveal div.jp-OutputArea-output > pre {
+  margin: 0;
+  width: 90%;
+  font-size: var(--jp-code-font-size);
+  box-shadow: none;
+}
+
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -14029,17 +14050,14 @@ div.jp-OutputPrompt {
 
 /* Scrollbars */
 
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar *
-{
-  background:transparent;
+::-webkit-scrollbar * {
+  background: transparent;
 }
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   background: #727272 !important;
 }
 </style>
@@ -14066,12 +14084,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
+                    linebreaks: {
+                    automatic: true
                     }
                 }
             });
-        
+
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14121,7 +14139,7 @@ div.jp-OutputPrompt {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">ledger_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;data/Q1Sales.xlsx&#39;</span><span class="p">)</span> <span class="c1"># read the first sheet</span>
+<span class="n">ledger_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">'data/Q1Sales.xlsx'</span><span class="p">)</span> <span class="c1"># read the first sheet</span>
 </pre></div>
 
      </div>
@@ -14137,7 +14155,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Channel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Channel'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14189,7 +14207,7 @@ Name: Channel, Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Product Name&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Product Name'</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -14241,7 +14259,7 @@ Name: Product Name, Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Product Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Product Name'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14293,7 +14311,7 @@ Name: Product Name, Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Product Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;LEGO&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Product Name'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">'LEGO'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14345,7 +14363,7 @@ Name: Product Name, Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Product Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;LEGO&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="kc">False</span><span class="p">)]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Product Name'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">'LEGO'</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="kc">False</span><span class="p">)]</span>
 </pre></div>
 
      </div>
@@ -14597,7 +14615,7 @@ Name: Product Name, Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Channel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;.com&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Channel'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'.com'</span><span class="p">,</span> <span class="s1">''</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14662,7 +14680,7 @@ Name: Channel, Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[10]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Channel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;iBay.com&#39;</span><span class="p">,</span> <span class="s1">&#39;Anazon.com&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Channel'</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">'iBay.com'</span><span class="p">,</span> <span class="s1">'Anazon.com'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14725,7 +14743,7 @@ Name: Channel, Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[[</span><span class="s1">&#39;Product Name&#39;</span><span class="p">,</span> <span class="s1">&#39;ProductID&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">]]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[[</span><span class="s1">'Product Name'</span><span class="p">,</span> <span class="s1">'ProductID'</span><span class="p">,</span> <span class="s1">'Unit Price'</span><span class="p">,</span> <span class="s1">'Quantity'</span><span class="p">,</span> <span class="s1">'Total'</span><span class="p">]]</span>
 </pre></div>
 
      </div>
@@ -14882,7 +14900,7 @@ Name: Channel, Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;ProductID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'ProductID'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14934,7 +14952,7 @@ Name: ProductID, Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;ProductID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'ProductID'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15055,7 +15073,7 @@ Name: ProductID, Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[[</span><span class="s1">&#39;CategoryID&#39;</span><span class="p">,</span> <span class="s1">&#39;ItemID&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;ProductID&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[[</span><span class="s1">'CategoryID'</span><span class="p">,</span> <span class="s1">'ItemID'</span><span class="p">]]</span> <span class="o">=</span> <span class="n">ledger_df</span><span class="p">[</span><span class="s1">'ProductID'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span> <span class="n">expand</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
 <span class="n">ledger_df</span>
 </pre></div>
@@ -15333,7 +15351,7 @@ Name: ProductID, Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">&#39;Category ID is: &#39;</span> <span class="o">+</span> <span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;CategoryID&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="s1">'Category ID is: '</span> <span class="o">+</span> <span class="n">ledger_df</span><span class="p">[</span><span class="s1">'CategoryID'</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -15385,7 +15403,7 @@ Name: CategoryID, Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;CategoryID&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;ItemID&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'CategoryID'</span><span class="p">]</span> <span class="o">+</span> <span class="s1">'/'</span> <span class="o">+</span> <span class="n">ledger_df</span><span class="p">[</span><span class="s1">'ItemID'</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -15437,7 +15455,7 @@ Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[21]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;InvoiceNo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;AccountNo&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'InvoiceNo'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'string'</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'/'</span> <span class="o">+</span> <span class="n">ledger_df</span><span class="p">[</span><span class="s1">'AccountNo'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'string'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15500,7 +15518,7 @@ Length: 14054, dtype: string</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;data/Q1Sales.xlsx&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">convert_dtypes</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">'data/Q1Sales.xlsx'</span><span class="p">)</span><span class="o">.</span><span class="n">convert_dtypes</span><span class="p">()</span>
 
 <span class="n">ledger_df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
 </pre></div>
@@ -15559,7 +15577,7 @@ memory usage: 1.4 MB
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[25]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Product Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Product Name'</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'string'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15611,7 +15629,7 @@ Name: Product Name, Length: 14054, dtype: string</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1011</span><span class="p">,</span> <span class="s1">&#39;1320&#39;</span><span class="p">,</span> <span class="s2">&quot;980&quot;</span><span class="p">,</span> <span class="mi">645</span><span class="p">,</span> <span class="mi">340</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1011</span><span class="p">,</span> <span class="s1">'1320'</span><span class="p">,</span> <span class="s2">"980"</span><span class="p">,</span> <span class="mi">645</span><span class="p">,</span> <span class="mi">340</span><span class="p">])</span>
 </pre></div>
 
      </div>
@@ -15657,7 +15675,7 @@ dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[27]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1011</span><span class="p">,</span> <span class="s1">&#39;1320&#39;</span><span class="p">,</span> <span class="s2">&quot;980&quot;</span><span class="p">,</span> <span class="mi">645</span><span class="p">,</span> <span class="mi">340</span><span class="p">])</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1011</span><span class="p">,</span> <span class="s1">'1320'</span><span class="p">,</span> <span class="s2">"980"</span><span class="p">,</span> <span class="mi">645</span><span class="p">,</span> <span class="mi">340</span><span class="p">])</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15703,7 +15721,7 @@ dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[28]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1011</span><span class="p">,</span> <span class="s1">&#39;1320&#39;</span><span class="p">,</span> <span class="s2">&quot;980&quot;</span><span class="p">,</span> <span class="mi">645</span><span class="p">,</span> <span class="mi">340</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;string&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">1011</span><span class="p">,</span> <span class="s1">'1320'</span><span class="p">,</span> <span class="s2">"980"</span><span class="p">,</span> <span class="mi">645</span><span class="p">,</span> <span class="mi">340</span><span class="p">])</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">'string'</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">''</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15760,7 +15778,7 @@ dtype: string</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[29]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;(Nikon).*(Camera)&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="s1">'(Nikon).*(Camera)'</span>
 </pre></div>
 
      </div>
@@ -15776,10 +15794,10 @@ dtype: string</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[30]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">is_camera</span> <span class="o">=</span> <span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Product Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;camera&#39;</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">is_camera</span> <span class="o">=</span> <span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Product Name'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">'camera'</span><span class="p">,</span> <span class="n">case</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
 
 <span class="n">cameras_df</span> <span class="o">=</span> <span class="n">ledger_df</span><span class="p">[</span><span class="n">is_camera</span><span class="p">]</span>
-<span class="n">cameras_df</span> <span class="o">=</span> <span class="n">cameras_df</span><span class="p">[[</span><span class="s1">&#39;ProductID&#39;</span><span class="p">,</span> <span class="s1">&#39;Product Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">]]</span>
+<span class="n">cameras_df</span> <span class="o">=</span> <span class="n">cameras_df</span><span class="p">[[</span><span class="s1">'ProductID'</span><span class="p">,</span> <span class="s1">'Product Name'</span><span class="p">,</span> <span class="s1">'Total'</span><span class="p">]]</span>
 
 <span class="n">cameras_df</span>
 </pre></div>
@@ -15914,8 +15932,8 @@ dtype: string</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;(Nikon|Canon|Kodak)&#39;</span>
-<span class="n">cameras_df</span> <span class="o">=</span> <span class="n">cameras_df</span><span class="p">[</span><span class="n">cameras_df</span><span class="p">[</span><span class="s1">&#39;Product Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">pattern</span><span class="p">)]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="s1">'(Nikon|Canon|Kodak)'</span>
+<span class="n">cameras_df</span> <span class="o">=</span> <span class="n">cameras_df</span><span class="p">[</span><span class="n">cameras_df</span><span class="p">[</span><span class="s1">'Product Name'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="n">pattern</span><span class="p">)]</span>
 
 <span class="n">cameras_df</span>
 </pre></div>
@@ -16064,9 +16082,9 @@ dtype: string</pre>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cameras_df</span><span class="p">[</span>
-    <span class="p">(</span><span class="n">cameras_df</span><span class="p">[</span><span class="s1">&#39;Product Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Nikon&#39;</span><span class="p">))</span>
-    <span class="o">|</span> <span class="p">(</span><span class="n">cameras_df</span><span class="p">[</span><span class="s1">&#39;Product Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Canon&#39;</span><span class="p">))</span>
-    <span class="o">|</span> <span class="p">(</span><span class="n">cameras_df</span><span class="p">[</span><span class="s1">&#39;Product Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">&#39;Kodak&#39;</span><span class="p">))</span>
+    <span class="p">(</span><span class="n">cameras_df</span><span class="p">[</span><span class="s1">'Product Name'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">'Nikon'</span><span class="p">))</span>
+    <span class="o">|</span> <span class="p">(</span><span class="n">cameras_df</span><span class="p">[</span><span class="s1">'Product Name'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">'Canon'</span><span class="p">))</span>
+    <span class="o">|</span> <span class="p">(</span><span class="n">cameras_df</span><span class="p">[</span><span class="s1">'Product Name'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">contains</span><span class="p">(</span><span class="s1">'Kodak'</span><span class="p">))</span>
 <span class="p">]</span>
 </pre></div>
 
@@ -16200,9 +16218,9 @@ dtype: string</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="s1">&#39;(Nikon|Canon|Kodak)\s+(\w*)&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">pattern</span> <span class="o">=</span> <span class="s1">'(Nikon|Canon|Kodak)\s+(\w*)'</span>
 
-<span class="n">cameras_df</span><span class="p">[</span><span class="s1">&#39;Product Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
+<span class="n">cameras_df</span><span class="p">[</span><span class="s1">'Product Name'</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">extract</span><span class="p">(</span><span class="n">pattern</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16335,7 +16353,7 @@ dtype: string</pre>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">process_channel</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s1">&#39;Name: &#39;</span> <span class="o">+</span> <span class="n">channel</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s1">'Name: '</span> <span class="o">+</span> <span class="n">channel</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -16351,7 +16369,7 @@ dtype: string</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[35]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">process_channel</span><span class="p">(</span><span class="s1">&#39;Shoppe.com&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">process_channel</span><span class="p">(</span><span class="s1">'Shoppe.com'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16392,7 +16410,7 @@ dtype: string</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[36]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">process_channel</span><span class="p">(</span><span class="s1">&#39;Bullseye&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">process_channel</span><span class="p">(</span><span class="s1">'Bullseye'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16433,7 +16451,7 @@ dtype: string</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Channel&#39;</span><span class="p">]:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Channel'</span><span class="p">]:</span>
     <span class="n">process_channel</span><span class="p">(</span><span class="n">channel</span><span class="p">)</span>
 </pre></div>
 
@@ -16450,7 +16468,7 @@ dtype: string</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[38]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Channel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">process_channel</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Channel'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">process_channel</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16504,9 +16522,9 @@ Name: Channel, Length: 14054, dtype: object</pre>
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">process_product</span><span class="p">(</span><span class="n">product</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">pd</span><span class="o">.</span><span class="n">isna</span><span class="p">(</span><span class="n">product</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s1">&#39;EMPTY PRODUCT NAME&#39;</span>
+        <span class="k">return</span> <span class="s1">'EMPTY PRODUCT NAME'</span>
     <span class="k">else</span><span class="p">:</span>
-        <span class="k">return</span> <span class="s1">&#39;Product: &#39;</span> <span class="o">+</span> <span class="n">product</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+        <span class="k">return</span> <span class="s1">'Product: '</span> <span class="o">+</span> <span class="n">product</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
         
 </pre></div>
 
@@ -16523,7 +16541,7 @@ Name: Channel, Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[42]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Product Name&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">process_product</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Product Name'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">process_product</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16586,7 +16604,7 @@ Name: Product Name, Length: 14054, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[43]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Channel&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">channel</span><span class="p">:</span> <span class="s1">&#39;Name: &#39;</span> <span class="o">+</span> <span class="n">channel</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Channel'</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">channel</span><span class="p">:</span> <span class="s1">'Name: '</span> <span class="o">+</span> <span class="n">channel</span><span class="o">.</span><span class="n">upper</span><span class="p">())</span>
 </pre></div>
 
      </div>
@@ -16640,10 +16658,10 @@ Name: Channel, Length: 14054, dtype: object</pre>
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># regular function definition</span>
 <span class="k">def</span> <span class="nf">process_channel</span><span class="p">(</span><span class="n">channel</span><span class="p">):</span>
-    <span class="k">return</span> <span class="s1">&#39;Name: &#39;</span> <span class="o">+</span> <span class="n">channel</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+    <span class="k">return</span> <span class="s1">'Name: '</span> <span class="o">+</span> <span class="n">channel</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 
 <span class="c1"># anonymous function definition</span>
-<span class="k">lambda</span> <span class="n">channel</span><span class="p">:</span> <span class="s1">&#39;Name: &#39;</span> <span class="o">+</span> <span class="n">channel</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
+<span class="k">lambda</span> <span class="n">channel</span><span class="p">:</span> <span class="s1">'Name: '</span> <span class="o">+</span> <span class="n">channel</span><span class="o">.</span><span class="n">upper</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -16750,7 +16768,7 @@ Name: 0, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[46]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">first_row</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">first_row</span><span class="p">[</span><span class="s1">'Total'</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -16791,7 +16809,7 @@ Name: 0, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">first_row</span><span class="p">[</span><span class="s1">&#39;Channel&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">first_row</span><span class="p">[</span><span class="s1">'Channel'</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -16833,12 +16851,12 @@ Name: 0, dtype: object</pre>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calculate_tax</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Channel&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Shoppe.com&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">16</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Channel&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;iBay.com&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">11</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
-    <span class="k">elif</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Channel&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Understock.com&#39;</span><span class="p">:</span>
-        <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">9</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">'Channel'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Shoppe.com'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s1">'Total'</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">16</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">row</span><span class="p">[</span><span class="s1">'Channel'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'iBay.com'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s1">'Total'</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">11</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">row</span><span class="p">[</span><span class="s1">'Channel'</span><span class="p">]</span> <span class="o">==</span> <span class="s1">'Understock.com'</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s1">'Total'</span><span class="p">]</span> <span class="o">*</span> <span class="p">(</span><span class="mi">9</span> <span class="o">/</span> <span class="mi">100</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
 </pre></div>
@@ -16979,7 +16997,7 @@ Name: 0, dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[52]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calculate_tax</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calculate_tax</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">'columns'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17043,8 +17061,8 @@ Length: 14054, dtype: float64</pre>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">calculate_tax</span><span class="p">(</span><span class="n">row</span><span class="p">,</span> <span class="n">levels</span><span class="o">=</span><span class="p">{}):</span>
-    <span class="n">channel</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Channel&#39;</span><span class="p">]</span>
-    <span class="n">total</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span>
+    <span class="n">channel</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">'Channel'</span><span class="p">]</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="s1">'Total'</span><span class="p">]</span>
     
     <span class="n">tax</span> <span class="o">=</span> <span class="mi">0</span>
     <span class="k">if</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">levels</span><span class="p">:</span>
@@ -17066,7 +17084,7 @@ Length: 14054, dtype: float64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[54]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calculate_tax</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">calculate_tax</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">'columns'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -17121,11 +17139,11 @@ Length: 14054, dtype: float64</pre>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
     <span class="n">calculate_tax</span><span class="p">,</span> 
     <span class="n">levels</span><span class="o">=</span><span class="p">{</span>
-        <span class="s1">&#39;Shoppe.com&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">16</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
-        <span class="s1">&#39;iBay.com&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">11</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
-        <span class="s1">&#39;Understock.com&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">9</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">'Shoppe.com'</span><span class="p">:</span> <span class="p">(</span><span class="mi">16</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">'iBay.com'</span><span class="p">:</span> <span class="p">(</span><span class="mi">11</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">'Understock.com'</span><span class="p">:</span> <span class="p">(</span><span class="mi">9</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
     <span class="p">},</span> 
-    <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span>
+    <span class="n">axis</span><span class="o">=</span><span class="s1">'columns'</span>
 <span class="p">)</span>
 </pre></div>
 
@@ -17181,13 +17199,13 @@ Length: 14054, dtype: float64</pre>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span>
     <span class="n">calculate_tax</span><span class="p">,</span> 
     <span class="n">levels</span><span class="o">=</span><span class="p">{</span>
-        <span class="s1">&#39;Shoppe.com&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">16</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
-        <span class="s1">&#39;iBay.com&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">11</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
-        <span class="s1">&#39;Understock.com&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">9</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
-        <span class="s1">&#39;Bullseye&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">6</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
-        <span class="s1">&#39;Walcart&#39;</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">'Shoppe.com'</span><span class="p">:</span> <span class="p">(</span><span class="mi">16</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">'iBay.com'</span><span class="p">:</span> <span class="p">(</span><span class="mi">11</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">'Understock.com'</span><span class="p">:</span> <span class="p">(</span><span class="mi">9</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">'Bullseye'</span><span class="p">:</span> <span class="p">(</span><span class="mi">6</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
+        <span class="s1">'Walcart'</span><span class="p">:</span> <span class="p">(</span><span class="mi">4</span> <span class="o">/</span> <span class="mi">100</span><span class="p">),</span>
     <span class="p">},</span> 
-    <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;columns&#39;</span>
+    <span class="n">axis</span><span class="o">=</span><span class="s1">'columns'</span>
 <span class="p">)</span>
 </pre></div>
 

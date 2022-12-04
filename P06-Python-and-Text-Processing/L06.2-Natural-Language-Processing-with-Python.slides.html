@@ -50,6 +50,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -13946,6 +13947,9 @@ a.anchor-link {
 .reveal {
   font-size: 160%;
 }
+.reveal table {
+  font-size: var(--jp-ui-font-size1);
+}
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -13989,6 +13993,23 @@ div.jp-OutputPrompt {
   margin: 5px 5px 0 0;
 }
 
+.reveal div.highlight {
+  margin: 0;
+}
+
+.reveal div.highlight > pre {
+  margin: 0;
+  width: 100%;
+  font-size: var(--jp-code-font-size);
+}
+
+.reveal div.jp-OutputArea-output > pre {
+  margin: 0;
+  width: 90%;
+  font-size: var(--jp-code-font-size);
+  box-shadow: none;
+}
+
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -14029,17 +14050,14 @@ div.jp-OutputPrompt {
 
 /* Scrollbars */
 
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar *
-{
-  background:transparent;
+::-webkit-scrollbar * {
+  background: transparent;
 }
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   background: #727272 !important;
 }
 </style>
@@ -14066,12 +14084,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
+                    linebreaks: {
+                    automatic: true
                     }
                 }
             });
-        
+
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14292,9 +14310,9 @@ reducing the size of index while increasing retrieval accuracy.</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">nltk</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;punkt&#39;</span><span class="p">)</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;stopwords&#39;</span><span class="p">)</span>
-<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">&#39;treebank&#39;</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'punkt'</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'stopwords'</span><span class="p">)</span>
+<span class="n">nltk</span><span class="o">.</span><span class="n">download</span><span class="p">(</span><span class="s1">'treebank'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14365,11 +14383,11 @@ reducing the size of index while increasing retrieval accuracy.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">para</span> <span class="o">=</span> <span class="s2">&quot;Python is a widely used general-purpose, high-level programming language. </span><span class="se">\</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">para</span> <span class="o">=</span> <span class="s2">"Python is a widely used general-purpose, high-level programming language. </span><span class="se">\</span>
 <span class="s2">        Its design philosophy emphasizes code readability, and its syntax allows programmers </span><span class="se">\</span>
 <span class="s2">        to express concepts in fewer lines of code than would be possible in languages such as </span><span class="se">\</span>
 <span class="s2">        C++ or Java. The language provides constructs intended to enable clear programs </span><span class="se">\</span>
-<span class="s2">        on both a small and large scale.&quot;</span>
+<span class="s2">        on both a small and large scale."</span>
 </pre></div>
 
      </div>
@@ -14441,7 +14459,7 @@ reducing the size of index while increasing retrieval accuracy.</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">word_tokenize</span>
-<span class="n">word_tokenize</span><span class="p">(</span><span class="s1">&#39;Hello World.&#39;</span><span class="p">)</span>
+<span class="n">word_tokenize</span><span class="p">(</span><span class="s1">'Hello World.'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14534,8 +14552,8 @@ reducing the size of index while increasing retrieval accuracy.</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.tokenize</span> <span class="kn">import</span> <span class="n">RegexpTokenizer</span>
-<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">RegexpTokenizer</span><span class="p">(</span><span class="s2">&quot;[\w&#39;]+&quot;</span><span class="p">)</span>
-<span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s2">&quot;Can&#39;t is a contraction.&quot;</span><span class="p">)</span>
+<span class="n">tokenizer</span> <span class="o">=</span> <span class="n">RegexpTokenizer</span><span class="p">(</span><span class="s2">"[\w']+"</span><span class="p">)</span>
+<span class="n">tokenizer</span><span class="o">.</span><span class="n">tokenize</span><span class="p">(</span><span class="s2">"Can't is a contraction."</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14588,7 +14606,7 @@ reducing the size of index while increasing retrieval accuracy.</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">stopwords</span>
-<span class="n">english_stops</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">&#39;english&#39;</span><span class="p">))</span>
+<span class="n">english_stops</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">stopwords</span><span class="o">.</span><span class="n">words</span><span class="p">(</span><span class="s1">'english'</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">english_stops</span><span class="p">)</span>
 </pre></div>
 
@@ -14628,7 +14646,7 @@ reducing the size of index while increasing retrieval accuracy.</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Can&#39;t&quot;</span><span class="p">,</span> <span class="s1">&#39;is&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;contraction&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">words</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"Can't"</span><span class="p">,</span> <span class="s1">'is'</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">,</span> <span class="s1">'contraction'</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -14711,7 +14729,7 @@ Porter. It is designed to remove and replace well-known suffixes of English word
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nltk.stem</span> <span class="kn">import</span> <span class="n">PorterStemmer</span>
 <span class="n">stemmer</span> <span class="o">=</span> <span class="n">PorterStemmer</span><span class="p">()</span>
-<span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="s1">&#39;cooking&#39;</span><span class="p">)</span>
+<span class="n">stemmer</span><span class="o">.</span><span class="n">stem</span><span class="p">(</span><span class="s1">'cooking'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14771,16 +14789,16 @@ to remove these annoying repeating characters in order to end up with a proper E
 <span class="kn">from</span> <span class="nn">nltk.corpus</span> <span class="kn">import</span> <span class="n">wordnet</span>
 
 <span class="n">replacement_patterns</span> <span class="o">=</span> <span class="p">[</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;won</span><span class="se">\&#39;</span><span class="s1">t&#39;</span><span class="p">,</span> <span class="s1">&#39;will not&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;can</span><span class="se">\&#39;</span><span class="s1">t&#39;</span><span class="p">,</span> <span class="s1">&#39;cannot&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;i</span><span class="se">\&#39;</span><span class="s1">m&#39;</span><span class="p">,</span> <span class="s1">&#39;i am&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;ain</span><span class="se">\&#39;</span><span class="s1">t&#39;</span><span class="p">,</span> <span class="s1">&#39;is not&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w+)</span><span class="se">\&#39;</span><span class="s1">ll&#39;</span><span class="p">,</span> <span class="s1">&#39;\g&lt;1&gt; will&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w+)n</span><span class="se">\&#39;</span><span class="s1">t&#39;</span><span class="p">,</span> <span class="s1">&#39;\g&lt;1&gt; not&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w+)</span><span class="se">\&#39;</span><span class="s1">ve&#39;</span><span class="p">,</span> <span class="s1">&#39;\g&lt;1&gt; have&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w+)</span><span class="se">\&#39;</span><span class="s1">s&#39;</span><span class="p">,</span> <span class="s1">&#39;\g&lt;1&gt; is&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w+)</span><span class="se">\&#39;</span><span class="s1">re&#39;</span><span class="p">,</span> <span class="s1">&#39;\g&lt;1&gt; are&#39;</span><span class="p">),</span>
-    <span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w+)</span><span class="se">\&#39;</span><span class="s1">d&#39;</span><span class="p">,</span> <span class="s1">&#39;\g&lt;1&gt; would&#39;</span><span class="p">)</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'won</span><span class="se">\'</span><span class="s1">t'</span><span class="p">,</span> <span class="s1">'will not'</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'can</span><span class="se">\'</span><span class="s1">t'</span><span class="p">,</span> <span class="s1">'cannot'</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'i</span><span class="se">\'</span><span class="s1">m'</span><span class="p">,</span> <span class="s1">'i am'</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'ain</span><span class="se">\'</span><span class="s1">t'</span><span class="p">,</span> <span class="s1">'is not'</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'(\w+)</span><span class="se">\'</span><span class="s1">ll'</span><span class="p">,</span> <span class="s1">'\g&lt;1&gt; will'</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'(\w+)n</span><span class="se">\'</span><span class="s1">t'</span><span class="p">,</span> <span class="s1">'\g&lt;1&gt; not'</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'(\w+)</span><span class="se">\'</span><span class="s1">ve'</span><span class="p">,</span> <span class="s1">'\g&lt;1&gt; have'</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'(\w+)</span><span class="se">\'</span><span class="s1">s'</span><span class="p">,</span> <span class="s1">'\g&lt;1&gt; is'</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'(\w+)</span><span class="se">\'</span><span class="s1">re'</span><span class="p">,</span> <span class="s1">'\g&lt;1&gt; are'</span><span class="p">),</span>
+    <span class="p">(</span><span class="sa">r</span><span class="s1">'(\w+)</span><span class="se">\'</span><span class="s1">d'</span><span class="p">,</span> <span class="s1">'\g&lt;1&gt; would'</span><span class="p">)</span>
 <span class="p">]</span>
 
 <span class="k">class</span> <span class="nc">RegexpReplacer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
@@ -14798,8 +14816,8 @@ to remove these annoying repeating characters in order to end up with a proper E
 <span class="k">class</span> <span class="nc">RepeatReplacer</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
     
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">repeat_regexp</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w*)(\w)\2(\w*)&#39;</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">repl</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">&#39;\1\2\3&#39;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">repeat_regexp</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="sa">r</span><span class="s1">'(\w*)(\w)\2(\w*)'</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">repl</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'\1\2\3'</span>
         
     <span class="k">def</span> <span class="nf">replace</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">word</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">wordnet</span><span class="o">.</span><span class="n">synsets</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
@@ -15007,24 +15025,24 @@ appears on resumes:</p>
 
 
 <span class="k">def</span> <span class="nf">plot_resumes</span><span class="p">(</span><span class="n">plt</span><span class="p">):</span>
-    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="s2">&quot;big data&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Hadoop&quot;</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;Python&quot;</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
-         <span class="p">(</span><span class="s2">&quot;R&quot;</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;machine learning&quot;</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;statistics&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span>
-         <span class="p">(</span><span class="s2">&quot;data science&quot;</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;analytics&quot;</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
-         <span class="p">(</span><span class="s2">&quot;team player&quot;</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">85</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;dynamic&quot;</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;synergies&quot;</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
-         <span class="p">(</span><span class="s2">&quot;actionable insights&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;think out of the box&quot;</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
-         <span class="p">(</span><span class="s2">&quot;self-starter&quot;</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="s2">&quot;customer focus&quot;</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
-         <span class="p">(</span><span class="s2">&quot;thought leadership&quot;</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">35</span><span class="p">)]</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">[</span> <span class="p">(</span><span class="s2">"big data"</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span> <span class="p">(</span><span class="s2">"Hadoop"</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">25</span><span class="p">),</span> <span class="p">(</span><span class="s2">"Python"</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span>
+         <span class="p">(</span><span class="s2">"R"</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">40</span><span class="p">),</span> <span class="p">(</span><span class="s2">"machine learning"</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="s2">"statistics"</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">60</span><span class="p">),</span>
+         <span class="p">(</span><span class="s2">"data science"</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">70</span><span class="p">),</span> <span class="p">(</span><span class="s2">"analytics"</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span>
+         <span class="p">(</span><span class="s2">"team player"</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">85</span><span class="p">),</span> <span class="p">(</span><span class="s2">"dynamic"</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">90</span><span class="p">),</span> <span class="p">(</span><span class="s2">"synergies"</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+         <span class="p">(</span><span class="s2">"actionable insights"</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">30</span><span class="p">),</span> <span class="p">(</span><span class="s2">"think out of the box"</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span>
+         <span class="p">(</span><span class="s2">"self-starter"</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">50</span><span class="p">),</span> <span class="p">(</span><span class="s2">"customer focus"</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">15</span><span class="p">),</span>
+         <span class="p">(</span><span class="s2">"thought leadership"</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">35</span><span class="p">)]</span>
 
     <span class="k">def</span> <span class="nf">text_size</span><span class="p">(</span><span class="n">total</span><span class="p">):</span>
-        <span class="sd">&quot;&quot;&quot;equals 8 if total is 0, 28 if total is 200&quot;&quot;&quot;</span>
+        <span class="sd">"""equals 8 if total is 0, 28 if total is 200"""</span>
         <span class="k">return</span> <span class="mi">8</span> <span class="o">+</span> <span class="n">total</span> <span class="o">/</span> <span class="mi">200</span> <span class="o">*</span> <span class="mi">20</span>
 
     <span class="k">for</span> <span class="n">word</span><span class="p">,</span> <span class="n">job_popularity</span><span class="p">,</span> <span class="n">resume_popularity</span> <span class="ow">in</span> <span class="n">data</span><span class="p">:</span>
         <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">job_popularity</span><span class="p">,</span> <span class="n">resume_popularity</span><span class="p">,</span> <span class="n">word</span><span class="p">,</span>
-                 <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+                 <span class="n">ha</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span> <span class="n">va</span><span class="o">=</span><span class="s1">'center'</span><span class="p">,</span>
                  <span class="n">size</span><span class="o">=</span><span class="n">text_size</span><span class="p">(</span><span class="n">job_popularity</span> <span class="o">+</span> <span class="n">resume_popularity</span><span class="p">))</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Popularity on Job Postings&quot;</span><span class="p">)</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Popularity on Resumes&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">"Popularity on Job Postings"</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">"Popularity on Resumes"</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">])</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
     

@@ -50,6 +50,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -13946,6 +13947,9 @@ a.anchor-link {
 .reveal {
   font-size: 160%;
 }
+.reveal table {
+  font-size: var(--jp-ui-font-size1);
+}
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -13989,6 +13993,23 @@ div.jp-OutputPrompt {
   margin: 5px 5px 0 0;
 }
 
+.reveal div.highlight {
+  margin: 0;
+}
+
+.reveal div.highlight > pre {
+  margin: 0;
+  width: 100%;
+  font-size: var(--jp-code-font-size);
+}
+
+.reveal div.jp-OutputArea-output > pre {
+  margin: 0;
+  width: 90%;
+  font-size: var(--jp-code-font-size);
+  box-shadow: none;
+}
+
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -14029,17 +14050,14 @@ div.jp-OutputPrompt {
 
 /* Scrollbars */
 
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar *
-{
-  background:transparent;
+::-webkit-scrollbar * {
+  background: transparent;
 }
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   background: #727272 !important;
 }
 </style>
@@ -14066,12 +14084,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
+                    linebreaks: {
+                    automatic: true
                     }
                 }
             });
-        
+
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14147,9 +14165,9 @@ div.jp-OutputPrompt {
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">chained_assignment</span> <span class="o">=</span> <span class="kc">None</span> <span class="c1"># disable warnings</span>
 
-<span class="n">emp</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/employment.csv&#39;</span><span class="p">)</span>
+<span class="n">emp</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'data/employment.csv'</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
-<span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">],</span><span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;%b-%Y&quot;</span><span class="p">)</span>
+<span class="n">emp</span><span class="p">[</span><span class="s1">'Time'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">emp</span><span class="p">[</span><span class="s1">'Time'</span><span class="p">],</span><span class="nb">format</span> <span class="o">=</span> <span class="s2">"%b-%Y"</span><span class="p">)</span>
 <span class="c1"># See https://docs.python.org/3/library/datetime.html#datetime.date for time format. </span>
 </pre></div>
 
@@ -14207,7 +14225,7 @@ div.jp-OutputPrompt {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Employed</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Employed</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'blue'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14279,7 +14297,7 @@ jp-needs-light-background
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">[</span><span class="o">-</span><span class="mi">72</span><span class="p">:],</span> <span class="n">emp</span><span class="o">.</span><span class="n">Employed</span><span class="p">[</span><span class="o">-</span><span class="mi">72</span><span class="p">:],</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">[</span><span class="o">-</span><span class="mi">72</span><span class="p">:],</span> <span class="n">emp</span><span class="o">.</span><span class="n">Employed</span><span class="p">[</span><span class="o">-</span><span class="mi">72</span><span class="p">:],</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14472,9 +14490,9 @@ $$Y_t=T_t\times S_t\times R_t$$
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">trend</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">seasonal</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">remainder</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">trend</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'black'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">seasonal</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'black'</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">time</span><span class="p">,</span> <span class="n">remainder</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s1">'black'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14895,11 +14913,11 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">air</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;data/AirPassengers.csv&#39;</span><span class="p">)</span>
-<span class="n">air</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">air</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">],</span><span class="nb">format</span> <span class="o">=</span> <span class="s2">&quot;%Y-%m&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">air</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">'data/AirPassengers.csv'</span><span class="p">)</span>
+<span class="n">air</span><span class="p">[</span><span class="s1">'Month'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">air</span><span class="p">[</span><span class="s1">'Month'</span><span class="p">],</span><span class="nb">format</span> <span class="o">=</span> <span class="s2">"%Y-%m"</span><span class="p">)</span>
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">UnemploymentRate</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">Month</span><span class="p">,</span> <span class="n">air</span><span class="o">.</span><span class="n">Passengers</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">UnemploymentRate</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">air</span><span class="o">.</span><span class="n">Month</span><span class="p">,</span> <span class="n">air</span><span class="o">.</span><span class="n">Passengers</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15005,10 +15023,10 @@ $$T_t = \frac{1}{m}\sum_{j=-k}^{k}Y_{t+j}\quad\textrm{where }m=2k+1$$<ul>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Unemp5MA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp</span><span class="p">[</span><span class="s1">&#39;UnemploymentRate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emp</span><span class="p">[</span><span class="s1">'Unemp5MA'</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp</span><span class="p">[</span><span class="s1">'UnemploymentRate'</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">UnemploymentRate</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Unemp5MA</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">UnemploymentRate</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Unemp5MA</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15080,11 +15098,11 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Unemp5x5MA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Unemp5MA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emp</span><span class="p">[</span><span class="s1">'Unemp5x5MA'</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp</span><span class="p">[</span><span class="s1">'Unemp5MA'</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">ax3</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">UnemploymentRate</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Unemp5MA</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Unemp5x5MA</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">UnemploymentRate</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Unemp5MA</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Unemp5x5MA</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15225,10 +15243,10 @@ $$\begin{aligned}Z_t=\frac{1}{16}&amp;(1+L^{-1})(L^2+L^1+1+L^{-1})Y_t\\=\frac{1}
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.api.indexers</span> <span class="kn">import</span> <span class="n">FixedForwardWindowIndexer</span>
 <span class="n">indexer</span> <span class="o">=</span> <span class="n">FixedForwardWindowIndexer</span><span class="p">(</span><span class="n">window_size</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Unemp12MA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp</span><span class="p">[</span><span class="s1">&#39;UnemploymentRate&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Unemp2x12MA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Unemp12MA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">emp</span><span class="p">[</span><span class="s1">'Unemp12MA'</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp</span><span class="p">[</span><span class="s1">'UnemploymentRate'</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">emp</span><span class="p">[</span><span class="s1">'Unemp2x12MA'</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp</span><span class="p">[</span><span class="s1">'Unemp12MA'</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Unemp2x12MA</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Unemp2x12MA</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15319,9 +15337,9 @@ $$S_t+R_t=Y_t-T_t\quad\textrm{or}\quad S_t\times R_t=Y_t/T_t$$<ul>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Detrended&#39;</span><span class="p">]</span><span class="o">=</span><span class="n">emp</span><span class="p">[</span><span class="s1">&#39;UnemploymentRate&#39;</span><span class="p">]</span><span class="o">-</span><span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Unemp2x12MA&#39;</span><span class="p">]</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emp</span><span class="p">[</span><span class="s1">'Detrended'</span><span class="p">]</span><span class="o">=</span><span class="n">emp</span><span class="p">[</span><span class="s1">'UnemploymentRate'</span><span class="p">]</span><span class="o">-</span><span class="n">emp</span><span class="p">[</span><span class="s1">'Unemp2x12MA'</span><span class="p">]</span> 
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Detrended</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Detrended</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15414,12 +15432,12 @@ $$\dots,S_{\textrm{Jan}},S_{\textrm{Feb}},\dots,S_{\textrm{Dec}},\dots,S_{\textr
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">month</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emp</span><span class="p">[</span><span class="s1">'Month'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">emp</span><span class="p">[</span><span class="s1">'Time'</span><span class="p">])</span><span class="o">.</span><span class="n">month</span>
 <span class="n">seas</span> <span class="o">=</span> <span class="n">emp</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="n">emp</span><span class="o">.</span><span class="n">Month</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">emp</span> <span class="o">=</span> <span class="n">emp</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">seas</span><span class="p">[</span><span class="s1">&#39;Detrended&#39;</span><span class="p">],</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
-<span class="n">emp</span> <span class="o">=</span> <span class="n">emp</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Detrended_x&quot;</span><span class="p">:</span><span class="s2">&quot;Detrended&quot;</span><span class="p">,</span> <span class="s2">&quot;Detrended_y&quot;</span><span class="p">:</span><span class="s2">&quot;Seasonal&quot;</span><span class="p">})</span>
+<span class="n">emp</span> <span class="o">=</span> <span class="n">emp</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">seas</span><span class="p">[</span><span class="s1">'Detrended'</span><span class="p">],</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">'left'</span><span class="p">,</span><span class="n">left_on</span><span class="o">=</span><span class="s1">'Month'</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">'Month'</span><span class="p">)</span>
+<span class="n">emp</span> <span class="o">=</span> <span class="n">emp</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Detrended_x"</span><span class="p">:</span><span class="s2">"Detrended"</span><span class="p">,</span> <span class="s2">"Detrended_y"</span><span class="p">:</span><span class="s2">"Seasonal"</span><span class="p">})</span>
 <span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Seasonal</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Seasonal</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15507,12 +15525,12 @@ $$R_t=Y_t/(T_t \times S_t)$$
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[17]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Remainder&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp</span><span class="p">[</span><span class="s1">&#39;UnemploymentRate&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Unemp2x12MA&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">emp</span><span class="p">[</span><span class="s1">&#39;Seasonal&#39;</span><span class="p">]</span> 
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emp</span><span class="p">[</span><span class="s1">'Remainder'</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp</span><span class="p">[</span><span class="s1">'UnemploymentRate'</span><span class="p">]</span> <span class="o">-</span> <span class="n">emp</span><span class="p">[</span><span class="s1">'Unemp2x12MA'</span><span class="p">]</span> <span class="o">-</span> <span class="n">emp</span><span class="p">[</span><span class="s1">'Seasonal'</span><span class="p">]</span> 
 <span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">ax3</span><span class="p">,</span><span class="n">ax4</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">UnemploymentRate</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Unemp2x12MA</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Seasonal</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Remainder</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">UnemploymentRate</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Unemp2x12MA</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Seasonal</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp</span><span class="o">.</span><span class="n">Remainder</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15584,15 +15602,15 @@ jp-needs-light-background
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[18]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emp_md</span> <span class="o">=</span> <span class="n">emp</span><span class="p">[[</span><span class="s1">&#39;Time&#39;</span><span class="p">,</span><span class="s1">&#39;Employed&#39;</span><span class="p">]]</span>
-<span class="n">emp_md</span><span class="p">[</span><span class="s1">&#39;Emp12MA&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp_md</span><span class="p">[</span><span class="s1">&#39;Employed&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">emp_md</span><span class="p">[</span><span class="s1">&#39;Trend&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp_md</span><span class="p">[</span><span class="s1">&#39;Emp12MA&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">emp_md</span><span class="p">[</span><span class="s1">&#39;Detrended&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp_md</span><span class="p">[</span><span class="s1">&#39;Employed&#39;</span><span class="p">]</span><span class="o">/</span><span class="n">emp_md</span><span class="p">[</span><span class="s1">&#39;Trend&#39;</span><span class="p">]</span>
-<span class="n">emp_md</span><span class="p">[</span><span class="s1">&#39;Month&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">emp_md</span><span class="p">[</span><span class="s1">&#39;Time&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">month</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">emp_md</span> <span class="o">=</span> <span class="n">emp</span><span class="p">[[</span><span class="s1">'Time'</span><span class="p">,</span><span class="s1">'Employed'</span><span class="p">]]</span>
+<span class="n">emp_md</span><span class="p">[</span><span class="s1">'Emp12MA'</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp_md</span><span class="p">[</span><span class="s1">'Employed'</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">window</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">center</span> <span class="o">=</span> <span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">emp_md</span><span class="p">[</span><span class="s1">'Trend'</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp_md</span><span class="p">[</span><span class="s1">'Emp12MA'</span><span class="p">]</span><span class="o">.</span><span class="n">rolling</span><span class="p">(</span><span class="n">indexer</span><span class="p">)</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<span class="n">emp_md</span><span class="p">[</span><span class="s1">'Detrended'</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp_md</span><span class="p">[</span><span class="s1">'Employed'</span><span class="p">]</span><span class="o">/</span><span class="n">emp_md</span><span class="p">[</span><span class="s1">'Trend'</span><span class="p">]</span>
+<span class="n">emp_md</span><span class="p">[</span><span class="s1">'Month'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DatetimeIndex</span><span class="p">(</span><span class="n">emp_md</span><span class="p">[</span><span class="s1">'Time'</span><span class="p">])</span><span class="o">.</span><span class="n">month</span>
 <span class="n">seas_md</span> <span class="o">=</span> <span class="n">emp_md</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span> <span class="p">[</span><span class="n">emp_md</span><span class="o">.</span><span class="n">Month</span><span class="p">])</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-<span class="n">emp_md</span> <span class="o">=</span> <span class="n">emp_md</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">seas_md</span><span class="p">[</span><span class="s1">&#39;Detrended&#39;</span><span class="p">],</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;Month&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;Month&#39;</span><span class="p">)</span>
-<span class="n">emp_md</span> <span class="o">=</span> <span class="n">emp_md</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Detrended_x&quot;</span><span class="p">:</span><span class="s2">&quot;Detrended&quot;</span><span class="p">,</span> <span class="s2">&quot;Detrended_y&quot;</span><span class="p">:</span><span class="s2">&quot;Seasonal&quot;</span><span class="p">})</span>
-<span class="n">emp_md</span><span class="p">[</span><span class="s1">&#39;Remainder&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp_md</span><span class="p">[</span><span class="s1">&#39;Employed&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">emp_md</span><span class="p">[</span><span class="s1">&#39;Trend&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">emp_md</span><span class="p">[</span><span class="s1">&#39;Seasonal&#39;</span><span class="p">])</span> 
+<span class="n">emp_md</span> <span class="o">=</span> <span class="n">emp_md</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">seas_md</span><span class="p">[</span><span class="s1">'Detrended'</span><span class="p">],</span> <span class="n">how</span> <span class="o">=</span> <span class="s1">'left'</span><span class="p">,</span><span class="n">left_on</span><span class="o">=</span><span class="s1">'Month'</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">'Month'</span><span class="p">)</span>
+<span class="n">emp_md</span> <span class="o">=</span> <span class="n">emp_md</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"Detrended_x"</span><span class="p">:</span><span class="s2">"Detrended"</span><span class="p">,</span> <span class="s2">"Detrended_y"</span><span class="p">:</span><span class="s2">"Seasonal"</span><span class="p">})</span>
+<span class="n">emp_md</span><span class="p">[</span><span class="s1">'Remainder'</span><span class="p">]</span> <span class="o">=</span> <span class="n">emp_md</span><span class="p">[</span><span class="s1">'Employed'</span><span class="p">]</span> <span class="o">/</span> <span class="p">(</span><span class="n">emp_md</span><span class="p">[</span><span class="s1">'Trend'</span><span class="p">]</span> <span class="o">-</span> <span class="n">emp_md</span><span class="p">[</span><span class="s1">'Seasonal'</span><span class="p">])</span> 
 </pre></div>
 
      </div>
@@ -15609,10 +15627,10 @@ jp-needs-light-background
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="p">(</span><span class="n">ax1</span><span class="p">,</span><span class="n">ax2</span><span class="p">,</span><span class="n">ax3</span><span class="p">,</span><span class="n">ax4</span><span class="p">)</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
-<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp_md</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp_md</span><span class="o">.</span><span class="n">Employed</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp_md</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp_md</span><span class="o">.</span><span class="n">Trend</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp_md</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp_md</span><span class="o">.</span><span class="n">Seasonal</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
-<span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp_md</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp_md</span><span class="o">.</span><span class="n">Remainder</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp_md</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp_md</span><span class="o">.</span><span class="n">Employed</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp_md</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp_md</span><span class="o">.</span><span class="n">Trend</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp_md</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp_md</span><span class="o">.</span><span class="n">Seasonal</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
+<span class="n">ax4</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">emp_md</span><span class="o">.</span><span class="n">Time</span><span class="p">,</span> <span class="n">emp_md</span><span class="o">.</span><span class="n">Remainder</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'black'</span><span class="p">)</span>
 </pre></div>
 
      </div>

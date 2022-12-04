@@ -50,6 +50,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -13946,6 +13947,9 @@ a.anchor-link {
 .reveal {
   font-size: 160%;
 }
+.reveal table {
+  font-size: var(--jp-ui-font-size1);
+}
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -13989,6 +13993,23 @@ div.jp-OutputPrompt {
   margin: 5px 5px 0 0;
 }
 
+.reveal div.highlight {
+  margin: 0;
+}
+
+.reveal div.highlight > pre {
+  margin: 0;
+  width: 100%;
+  font-size: var(--jp-code-font-size);
+}
+
+.reveal div.jp-OutputArea-output > pre {
+  margin: 0;
+  width: 90%;
+  font-size: var(--jp-code-font-size);
+  box-shadow: none;
+}
+
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -14029,17 +14050,14 @@ div.jp-OutputPrompt {
 
 /* Scrollbars */
 
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar *
-{
-  background:transparent;
+::-webkit-scrollbar * {
+  background: transparent;
 }
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   background: #727272 !important;
 }
 </style>
@@ -14066,12 +14084,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
+                    linebreaks: {
+                    automatic: true
                     }
                 }
             });
-        
+
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14110,9 +14128,9 @@ div.jp-OutputPrompt {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="n">ledger_df_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="s1">&#39;data/Q1Sales.xlsx&#39;</span><span class="p">)</span>
+<span class="n">ledger_df_info</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">ExcelFile</span><span class="p">(</span><span class="s1">'data/Q1Sales.xlsx'</span><span class="p">)</span>
 <span class="n">ledger_df_info</span><span class="o">.</span><span class="n">sheet_names</span>
-<span class="n">ledger_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;data/Q1Sales.xlsx&#39;</span><span class="p">)</span> <span class="c1"># read the first sheet</span>
+<span class="n">ledger_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">'data/Q1Sales.xlsx'</span><span class="p">)</span> <span class="c1"># read the first sheet</span>
 </pre></div>
 
      </div>
@@ -14128,7 +14146,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ProductID&#39;</span><span class="p">,</span> <span class="s1">&#39;Product Name&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel&#39;</span><span class="p">,</span> <span class="s1">&#39;Unit Price&#39;</span><span class="p">,</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'ProductID'</span><span class="p">,</span> <span class="s1">'Product Name'</span><span class="p">,</span> <span class="s1">'Channel'</span><span class="p">,</span> <span class="s1">'Unit Price'</span><span class="p">,</span> <span class="s1">'Quantity'</span><span class="p">,</span> <span class="s1">'Total'</span><span class="p">]</span>
 <span class="n">sample_df</span> <span class="o">=</span> <span class="n">ledger_df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
@@ -14304,7 +14322,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Channel&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Total&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Channel'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">'Total'</span><span class="p">:</span> <span class="s1">'sum'</span><span class="p">})</span>
 </pre></div>
 
      </div>
@@ -14399,7 +14417,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">groups</span> <span class="o">=</span> <span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Channel&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">groups</span> <span class="o">=</span> <span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Channel'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14497,7 +14515,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">groups</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;Bullseye&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">groups</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">'Bullseye'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14584,7 +14602,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">groups</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;Bullseye&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">groups</span><span class="p">[</span><span class="s1">'Total'</span><span class="p">]</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">'Bullseye'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14627,7 +14645,7 @@ Name: Total, dtype: float64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[13]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">groups</span><span class="p">[[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">&#39;Bullseye&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">groups</span><span class="p">[[</span><span class="s1">'Quantity'</span><span class="p">,</span> <span class="s1">'Total'</span><span class="p">]]</span><span class="o">.</span><span class="n">get_group</span><span class="p">(</span><span class="s1">'Bullseye'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14702,7 +14720,7 @@ Name: Total, dtype: float64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[14]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">groups</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">groups</span><span class="p">[</span><span class="s1">'Total'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14748,7 +14766,7 @@ Name: Total, dtype: float64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[15]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">groups</span><span class="p">[[</span><span class="s1">&#39;Quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">groups</span><span class="p">[[</span><span class="s1">'Quantity'</span><span class="p">,</span> <span class="s1">'Total'</span><span class="p">]]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14838,7 +14856,7 @@ Name: Total, dtype: float64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Channel&#39;</span><span class="p">)[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Channel'</span><span class="p">)[</span><span class="s1">'Total'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -14896,8 +14914,8 @@ Name: Total, dtype: float64</pre>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># this works as well</span>
-<span class="c1"># sample_df.groupby(&#39;Channel&#39;)[&#39;Total&#39;].agg(&#39;sum&#39;)</span>
-<span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Channel&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Total&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+<span class="c1"># sample_df.groupby('Channel')['Total'].agg('sum')</span>
+<span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Channel'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">'Total'</span><span class="p">:</span> <span class="s1">'sum'</span><span class="p">})</span>
 </pre></div>
 
      </div>
@@ -14982,9 +15000,9 @@ Name: Total, dtype: float64</pre>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="p">(</span><span class="n">sample_df</span>
-    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Channel&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
-        <span class="s1">&#39;Total&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;Quantity&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Channel'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
+        <span class="s1">'Total'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'sum'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">],</span>
+        <span class="s1">'Quantity'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'sum'</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">,</span> <span class="s1">'min'</span><span class="p">]</span>
     <span class="p">})</span>
 <span class="p">)</span> 
 </pre></div>
@@ -15107,14 +15125,14 @@ Name: Total, dtype: float64</pre>
 <span class="c1"># to another variable </span>
 <span class="n">aggregate_df</span> <span class="o">=</span> <span class="p">(</span>
   <span class="n">sample_df</span>
-    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Channel&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
-        <span class="s1">&#39;Total&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;mean&#39;</span><span class="p">],</span>
-        <span class="s1">&#39;Quantity&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="s1">&#39;min&#39;</span><span class="p">]</span>
+    <span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Channel'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span>
+        <span class="s1">'Total'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'sum'</span><span class="p">,</span> <span class="s1">'mean'</span><span class="p">],</span>
+        <span class="s1">'Quantity'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'sum'</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">,</span> <span class="s1">'min'</span><span class="p">]</span>
     <span class="p">})</span>
 <span class="p">)</span> 
 
 <span class="c1"># selects the max column under Quantity</span>
-<span class="n">aggregate_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">(</span><span class="s1">&#39;Quantity&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">)]</span>
+<span class="n">aggregate_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">(</span><span class="s1">'Quantity'</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">)]</span>
 </pre></div>
 
      </div>
@@ -15160,7 +15178,7 @@ Name: (Quantity, max), dtype: int64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[20]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">aggregate_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;Quantity&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">aggregate_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">'Quantity'</span><span class="p">]</span>
 </pre></div>
 
      </div>
@@ -15270,7 +15288,7 @@ Name: (Quantity, max), dtype: int64</pre>
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">total_diff</span><span class="p">(</span><span class="n">column</span><span class="p">):</span>
     <span class="k">return</span> <span class="n">column</span><span class="o">.</span><span class="n">max</span><span class="p">()</span> <span class="o">-</span> <span class="n">column</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>    
 
-<span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Channel&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Total&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;min&#39;</span><span class="p">,</span> <span class="s1">&#39;max&#39;</span><span class="p">,</span> <span class="n">total_diff</span><span class="p">]})</span>
+<span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Channel'</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">'Total'</span><span class="p">:</span> <span class="p">[</span><span class="s1">'min'</span><span class="p">,</span> <span class="s1">'max'</span><span class="p">,</span> <span class="n">total_diff</span><span class="p">]})</span>
 </pre></div>
 
      </div>
@@ -15386,9 +15404,9 @@ Name: (Quantity, max), dtype: int64</pre>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">filter_group</span><span class="p">(</span><span class="n">group_df</span><span class="p">):</span>
-    <span class="k">return</span> <span class="n">group_df</span> <span class="k">if</span> <span class="n">group_df</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">200</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="n">group_df</span> <span class="k">if</span> <span class="n">group_df</span><span class="p">[</span><span class="s1">'Total'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">&gt;</span> <span class="mi">200</span> <span class="k">else</span> <span class="kc">None</span>
 
-<span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Channel&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">filter_group</span><span class="p">)</span>
+<span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Channel'</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">filter_group</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15497,7 +15515,7 @@ Name: (Quantity, max), dtype: int64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[24]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Channel&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">filter_group</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Channel'</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">filter_group</span><span class="p">)</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15594,12 +15612,12 @@ Name: (Quantity, max), dtype: int64</pre>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">percent_group_total</span><span class="p">(</span><span class="n">group_df</span><span class="p">):</span>    
-    <span class="n">group_df</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">% G</span><span class="s1">roup Total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">group_df</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span> <span class="o">/</span> <span class="n">group_df</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span>
-    <span class="n">group_df</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">% G</span><span class="s1">roup Total&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">group_df</span><span class="p">[</span><span class="s1">&#39;</span><span class="si">% G</span><span class="s1">roup Total&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">group_df</span><span class="p">[</span><span class="s1">'</span><span class="si">% G</span><span class="s1">roup Total'</span><span class="p">]</span> <span class="o">=</span> <span class="n">group_df</span><span class="p">[</span><span class="s1">'Total'</span><span class="p">]</span> <span class="o">/</span> <span class="n">group_df</span><span class="p">[</span><span class="s1">'Total'</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="n">group_df</span><span class="p">[</span><span class="s1">'</span><span class="si">% G</span><span class="s1">roup Total'</span><span class="p">]</span> <span class="o">=</span> <span class="n">group_df</span><span class="p">[</span><span class="s1">'</span><span class="si">% G</span><span class="s1">roup Total'</span><span class="p">]</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
     
     <span class="k">return</span> <span class="n">group_df</span>
 
-<span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;Channel&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">percent_group_total</span><span class="p">)</span>
+<span class="n">sample_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">'Channel'</span><span class="p">)</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">percent_group_total</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15780,7 +15798,7 @@ Name: (Quantity, max), dtype: int64</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[26]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;ProductID&#39;</span><span class="p">,</span> <span class="s1">&#39;Channel&#39;</span><span class="p">,</span> <span class="s1">&#39;Total&#39;</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">'ProductID'</span><span class="p">,</span> <span class="s1">'Channel'</span><span class="p">,</span> <span class="s1">'Total'</span><span class="p">]</span>
 <span class="n">sample_df</span> <span class="o">=</span> <span class="n">ledger_df</span><span class="p">[</span><span class="n">columns</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 
 <span class="n">sample_df</span>
@@ -16044,10 +16062,10 @@ dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;data/Q1Sales.xlsx&#39;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">'data/Q1Sales.xlsx'</span><span class="p">)</span>
 
-<span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Deadline&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Deadline&#39;</span><span class="p">])</span>
-<span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Deadline Quarter&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger_df</span><span class="p">[</span><span class="s1">&#39;Deadline&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">&#39;Q-DEC&#39;</span><span class="p">)</span>
+<span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Deadline'</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Deadline'</span><span class="p">])</span>
+<span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Deadline Quarter'</span><span class="p">]</span> <span class="o">=</span> <span class="n">ledger_df</span><span class="p">[</span><span class="s1">'Deadline'</span><span class="p">]</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">to_period</span><span class="p">(</span><span class="n">freq</span><span class="o">=</span><span class="s1">'Q-DEC'</span><span class="p">)</span>
 
 <span class="n">ledger_df</span>
 </pre></div>
@@ -16302,7 +16320,7 @@ dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[32]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Channel&#39;</span><span class="p">,</span> <span class="s1">&#39;Deadline Quarter&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">})</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Channel'</span><span class="p">,</span> <span class="s1">'Deadline Quarter'</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">'Quantity'</span><span class="p">:</span> <span class="s1">'sum'</span><span class="p">})</span>
 </pre></div>
 
      </div>
@@ -16457,7 +16475,7 @@ dtype: object</pre>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[33]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Channel&#39;</span><span class="p">,</span> <span class="s1">&#39;Deadline Quarter&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">&#39;Quantity&#39;</span><span class="p">:</span> <span class="s1">&#39;sum&#39;</span><span class="p">})</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">ledger_df</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">'Channel'</span><span class="p">,</span> <span class="s1">'Deadline Quarter'</span><span class="p">])</span><span class="o">.</span><span class="n">agg</span><span class="p">({</span><span class="s1">'Quantity'</span><span class="p">:</span> <span class="s1">'sum'</span><span class="p">})</span><span class="o">.</span><span class="n">unstack</span><span class="p">()</span>
 </pre></div>
 
      </div>
@@ -16575,10 +16593,10 @@ dtype: object</pre>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">ledger_df</span><span class="p">,</span> 
-               <span class="n">index</span><span class="o">=</span><span class="s1">&#39;Channel&#39;</span><span class="p">,</span> 
-               <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Deadline Quarter&#39;</span><span class="p">,</span> 
-               <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Quantity&#39;</span><span class="p">,</span>
-               <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">)</span>
+               <span class="n">index</span><span class="o">=</span><span class="s1">'Channel'</span><span class="p">,</span> 
+               <span class="n">columns</span><span class="o">=</span><span class="s1">'Deadline Quarter'</span><span class="p">,</span> 
+               <span class="n">values</span><span class="o">=</span><span class="s1">'Quantity'</span><span class="p">,</span>
+               <span class="n">aggfunc</span><span class="o">=</span><span class="s1">'sum'</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -16688,12 +16706,12 @@ dtype: object</pre>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">pd</span><span class="o">.</span><span class="n">pivot_table</span><span class="p">(</span><span class="n">ledger_df</span><span class="p">,</span> 
-               <span class="n">index</span><span class="o">=</span><span class="s1">&#39;Channel&#39;</span><span class="p">,</span> 
-               <span class="n">columns</span><span class="o">=</span><span class="s1">&#39;Deadline Quarter&#39;</span><span class="p">,</span> 
-               <span class="n">values</span><span class="o">=</span><span class="s1">&#39;Quantity&#39;</span><span class="p">,</span> 
-               <span class="n">aggfunc</span><span class="o">=</span><span class="s1">&#39;sum&#39;</span><span class="p">,</span>
+               <span class="n">index</span><span class="o">=</span><span class="s1">'Channel'</span><span class="p">,</span> 
+               <span class="n">columns</span><span class="o">=</span><span class="s1">'Deadline Quarter'</span><span class="p">,</span> 
+               <span class="n">values</span><span class="o">=</span><span class="s1">'Quantity'</span><span class="p">,</span> 
+               <span class="n">aggfunc</span><span class="o">=</span><span class="s1">'sum'</span><span class="p">,</span>
                <span class="n">margins</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-               <span class="n">margins_name</span><span class="o">=</span><span class="s1">&#39;TOTAL&#39;</span><span class="p">)</span>
+               <span class="n">margins_name</span><span class="o">=</span><span class="s1">'TOTAL'</span><span class="p">)</span>
 </pre></div>
 
      </div>
